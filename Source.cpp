@@ -31,6 +31,19 @@ int main()
     square.setFillColor(sf::Color::Magenta);
     square.setPosition(sf::Vector2f(190, 100));
 
+    sf::RectangleShape line({ 75.f, 5.f });
+    line.rotate(sf::degrees(45));
+	line.setPosition(sf::Vector2f(280, 100));
+
+    sf::ConvexShape convex;
+	convex.setPointCount(4);
+	convex.setFillColor(sf::Color::Green);
+	convex.setPosition(sf::Vector2f(100, 200));
+	convex.setPoint(0, { 25, 10 });
+    convex.setPoint(1, { 280, 25 });
+    convex.setPoint(2, { 225, 150 });
+	convex.setPoint(3, { 10, 100 });
+
 
     while (window.isOpen())
     {
@@ -46,6 +59,8 @@ int main()
 		window.draw(circle);
 		window.draw(triangle);
 		window.draw(square);
+		window.draw(line);
+		window.draw(convex);
         window.display();
     }
 }
