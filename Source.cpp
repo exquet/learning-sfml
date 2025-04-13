@@ -2,7 +2,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode({ 400, 400 }), "SFML works!", sf::Style::Default, sf::State::Windowed);
+    sf::RenderWindow window(sf::VideoMode({ 600, 600 }), "SFML works!", sf::Style::Default, sf::State::Windowed);
     sf::Font font;
 	if (!font.openFromFile("C:/Users/dimat/source/SFML repos/project 1/textFont.ttf"))
 		return -1;
@@ -44,6 +44,14 @@ int main()
     convex.setPoint(2, { 225, 150 });
 	convex.setPoint(3, { 10, 100 });
 
+    sf::VertexArray triangleVertex(sf::PrimitiveType::Triangles, 3);
+	triangleVertex[0].position = { 350.f, 350.f };
+    triangleVertex[1].position = { 550.f, 350.f };
+    triangleVertex[2].position = { 550.f, 550.f };
+	triangleVertex[0].color = sf::Color::Red;
+	triangleVertex[1].color = sf::Color::Green;
+	triangleVertex[2].color = sf::Color::Blue;
+
 
     while (window.isOpen())
     {
@@ -61,6 +69,7 @@ int main()
 		window.draw(square);
 		window.draw(line);
 		window.draw(convex);
+		window.draw(triangleVertex);
         window.display();
     }
 }
