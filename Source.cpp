@@ -59,6 +59,19 @@ int main()
         {
             if (event->is<sf::Event::Closed>())
                 window.close();
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
+				circle.move(sf::Vector2f(0, -1));
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
+                circle.move(sf::Vector2f(-1, 0));
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
+                circle.move(sf::Vector2f(1, 0));
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
+                circle.move(sf::Vector2f(0, 1));
+            }
         }
 
         window.clear();
