@@ -2,7 +2,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode({ 600, 600 }), "SFML works!", sf::Style::Default, sf::State::Windowed);
+    sf::RenderWindow window(sf::VideoMode({ 600, 600 }), "shapes test", sf::Style::Default, sf::State::Windowed);
     sf::Font font;
 	if (!font.openFromFile("C:/Users/dimat/source/SFML repos/project 1/textFont.ttf"))
 		return -1;
@@ -52,6 +52,16 @@ int main()
 	triangleVertex[1].color = sf::Color::Green;
 	triangleVertex[2].color = sf::Color::Blue;
 
+	sf::CircleShape spriteTriangle(100.f, 3);
+	spriteTriangle.setPosition(sf::Vector2f(150, 400));
+	sf::Texture texture;
+    if (!texture.loadFromFile("C:/Users/dimat/source/SFML repos/project 1/testTexture.jpg"))
+        return -1;
+	sf::Sprite sprite(texture);
+	spriteTriangle.setTexture(&texture);
+	sprite.setPosition(sf::Vector2f(350, 575));
+
+
 
     while (window.isOpen())
     {
@@ -85,6 +95,8 @@ int main()
         line.setRotation(line.getRotation() + sf::degrees(1));
 		window.draw(convex);
 		window.draw(triangleVertex);
+		window.draw(spriteTriangle);
+        window.draw(sprite);
         window.display();
     }
 }
